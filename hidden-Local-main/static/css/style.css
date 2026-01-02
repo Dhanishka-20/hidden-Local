@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 25px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* EXPLORE PAGE BACKGROUND */
+.explore-page {
+    background: url("../images/light.png") center/cover no-repeat fixed;
+}
+
+/* HEADER */
+.explore-header {
+    text-align: center;
+    padding: 140px 20px 60px;
+}
+
+.explore-header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.explore-header p {
+    font-size: 18px;
+    color: #334155;
+}
+
+/* CATEGORY PANELS */
+.explore-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 40px auto 50px;
+    padding: 0 30px;
+}
+
+.explore-card {
+    height: 180px;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.explore-card:hover {
+    transform: scale(1.05);
+}
+
+.explore-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.explore-card span {
+    position: relative;
+    z-index: 2;
+}
+
+/* CATEGORY IMAGES */
+.food-bg { background: url("../images/food.png") center/cover no-repeat; }
+.places-bg { background: url("../images/places.jpg") center/cover no-repeat; }
+.markets-bg { background: url("../images/market.jpg") center/cover no-repeat; }
+.culture-bg { background: url("../images/culture.jpg") center/cover no-repeat; }
+
+/* FILTER BAR */
+.filter-bar {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-bar select {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+/* MAP */
+#map {
+    height: 420px;
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    border-radius: 20px;
+}
+
+/* RESULTS */
+.explore-results {
+    max-width: 1100px;
+    margin: 0 auto 100px;
+    padding: 0 30px;
+}
+
+.result-card {
+    background: rgba(255,255,255,0.95);
+    border-left: 6px solid #0f766e;
+    padding: 30px;
+    border-radius: 18px;
+    margin-bottom: 28px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.card-content h3 {
+    font-size: 26px;
+    color: #0f766e;
+}
+
+.card-content span {
+    font-size: 14px;
+    color: #475569;
+}
+
+.card-content p {
+    margin-top: 12px;
+    line-height: 1.6;
+}
+
+/* HOME PAGE HERO (SAFE) */
+.hero {
+    height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("../images/hero.png") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+
+    /* 🔥 ADD THIS */
+    padding-top: 120px;
+}
+
+
+.home-page .hero-content {
+    max-width: 600px;
+    color: white;
+    display: flex;              /* 🔥 added */
+    flex-direction: column;     /* 🔥 added */
+    gap: 25px; 
+}
+
+.home-page .hero-btn {
+    background: #f59e0b;
+    padding: 16px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.big-map-btn {
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    color: white;
+    font-size: 20px;
+    padding: 18px 46px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 15px 35px rgba(15,118,110,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.big-map-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 45px rgba(15,118,110,0.6);
+}

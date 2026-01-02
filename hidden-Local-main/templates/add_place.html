@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Hidden Place</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="explore-page">
+
+<div class="result-card" style="max-width:600px;margin:120px auto;">
+    <h3>Add Hidden Place</h3>
+
+    <form method="POST">
+        <input name="name" placeholder="Place Name" required><br><br>
+        <input name="city" placeholder="City" required><br><br>
+
+        <select name="category">
+            <option>Food</option>
+            <option>Place</option>
+            <option>Market</option>
+            <option>Culture</option>
+        </select><br><br>
+
+        <textarea name="description" placeholder="Description"></textarea><br><br>
+
+        <button class="hero-btn">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

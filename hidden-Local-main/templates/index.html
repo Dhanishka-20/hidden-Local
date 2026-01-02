@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hidden Local</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="home-page">   <!-- 🔥 THIS FIX -->
+
+<nav class="navbar">
+    <div class="logo">Hidden Local</div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/explore">Explore</a></li>
+        <li>Stories</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Explore Hidden<br>Local Experiences</h1>
+        <p>
+            Discover food, lanes, stories and places<br>
+            that only locals know — not Google.
+        </p>
+        <a href="/explore" class="hero-btn">Explore Now</a>
+    </div>
+</section>
+
+</body>
+</html>
