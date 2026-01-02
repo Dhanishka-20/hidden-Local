@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Vendor | Hidden Local</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2 class="logo">Hidden Local</h2>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="add_vendor.html">Add Vendor</a></li>
+        </ul>
+    </nav>
+
+    <!-- Add Vendor Form -->
+    <section class="about">
+        <h2>Add a Local Vendor</h2>
+
+        <form class="vendor-form" id="vendorForm" enctype="multipart/form-data">
+
+            <input type="text" name="name" placeholder="Vendor Name" required>
+
+            <select name="category" required>
+                <option value="">Select Category</option>
+                <option>Food</option>
+                <option>Shop</option>
+                <option>Service</option>
+                <option>Market</option>
+            </select>
+
+            <input type="text" name="area" placeholder="City / Area" required>
+
+            <textarea name="description" placeholder="Why is this place special?" rows="4"></textarea>
+
+            <label>Rating (1 to 5)</label>
+            <input type="number" name="rating" min="1" max="5" required>
+
+            <label>Select Location on Map</label>
+            <div id="map" style="height:300px; border-radius:5px;"></div>
+
+            <!-- Hidden location fields -->
+            <input type="hidden" name="latitude" id="latitude">
+            <input type="hidden" name="longitude" id="longitude">
+
+            <label>Upload Vendor Image</label>
+            <input type="file" name="image" id="vendorImage" accept="image/*" required>
+
+            <!-- Image Preview -->
+            <img 
+                id="imagePreview" 
+                style="display:none; margin-top:10px; max-width:250px; border-radius:6px;"
+                alt="Image Preview"
+            />
+
+            <button class="primary-btn" type="submit">
+                Submit Vendor
+            </button>
+        </form>
+    </section>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        // --------------------
+        // MAP INITIALIZATION
+        // --------------------
+        const map = L.map('map').setView([26.9124, 75.7873], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        let marker;
+
+        map.on('click', function (e) {
+            if (marker) {
+                marker.setLatLng(e.latlng);
+            } else {
+                marker = L.marker(e.latlng).addTo(map);
+            }
+            document.getElementById("latitude").value = e.latlng.lat;
+            document.getElementById("longitude").value = e.latlng.lng;
+        });
+
+        // --------------------
+        // IMAGE PREVIEW
+        // --------------------
+        const imageInput = document.getElementById("vendorImage");
+        const imagePreview = document.getElementById("imagePreview");
+
+        imageInput.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // --------------------
+        // FORM SUBMISSION
+        // --------------------
+        document.getElementById("vendorForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch("http://127.0.0.1:5000/add-vendor", {
+                method: "POST",
+                body: formData
+            })
+            .then(res => res.json())
+            .then(() => {
+                alert("Vendor submitted successfully!");
+                this.reset();
+                imagePreview.style.display = "none";
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Error submitting vendor");
+            });
+        });
+    </script>
+
+</body>
+</html>
