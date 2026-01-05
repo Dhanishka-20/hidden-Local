@@ -1,0 +1,79 @@
+CREATE DATABASE hidden_local;
+USE hidden_local;
+
+CREATE TABLE vendors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    category VARCHAR(50),
+    area VARCHAR(100),
+    description TEXT,
+    rating INT,
+    latitude DOUBLE,
+    longitude DOUBLE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO vendors
+(name, category, area, description, rating, latitude, longitude)
+VALUES
+('Sharma Tea Stall', 'Food', 'MI Road, Jaipur',
+ 'Very affordable tea with amazing taste. Locals love this place.',
+ 4, 26.9167, 75.8187),
+
+('Gulab Ji Chaat', 'Food', 'Bapu Bazaar, Jaipur',
+ 'Hidden chaat corner famous among locals, hygienic and tasty.',
+ 5, 26.9221, 75.8235),
+
+('Anokhi Handicrafts', 'Shop', 'Amer Road, Jaipur',
+ 'Small shop selling authentic handmade Rajasthani items.',
+ 4, 26.9855, 75.8513),
+
+('Kachori Wala', 'Food', 'Vaishali Nagar, Jaipur',
+ 'Crispy kachoris, very popular among morning walkers.',
+ 5, 26.9120, 75.7378),
+
+('Sanjay Mochi Repair', 'Service', 'Chandpole, Jaipur',
+ 'Old local shoe repair shop with excellent workmanship.',
+ 4, 26.9253, 75.8230),
+
+('Hidden Stepwell', 'Culture', 'Near Amer Fort, Jaipur',
+ 'Less-known historical stepwell with beautiful architecture.',
+ 5, 26.9850, 75.8500),
+
+('Local Spice Market', 'Market', 'Johari Bazaar, Jaipur',
+ 'Traditional spice market with authentic local flavors.',
+ 4, 26.9239, 75.8267),
+
+('Raju Kulfi', 'Food', 'Civil Lines, Jaipur',
+ 'Homemade kulfi, seasonal flavors, loved by families.',
+ 5, 26.9129, 75.7873),
+
+('Handloom Corner', 'Shop', 'Tonk Road, Jaipur',
+ 'Hidden handloom store with pure cotton fabrics.',
+ 4, 26.8456, 75.8061),
+
+('Village Pottery Shed', 'Culture', 'Sanganer, Jaipur',
+ 'Local artisans creating traditional clay pottery.',
+ 5, 26.8190, 75.8000);
+ 
+ select * from vendors;
+ 
+ ALTER TABLE vendors
+ADD COLUMN status VARCHAR(20) DEFAULT 'pending';
+
+SELECT id, name, status FROM vendors;
+
+ALTER TABLE vendors
+ADD COLUMN image_path VARCHAR(255);
+
+UPDATE vendors SET status = 'pending' WHERE status IS NULL;
+
+UPDATE vendors
+SET status = 'pending'
+WHERE status IS NULL;
+
+USE hidden_local;
+
+ALTER TABLE vendors
+ADD COLUMN likes INT DEFAULT 0;
+
