@@ -1,0 +1,114 @@
+/* =========================
+   CHATBOT FLOATING BUTTON
+========================= */
+.chat-toggle {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #22c55e;
+  color: #000;
+  font-size: 22px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.chat-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   CHATBOX CONTAINER
+========================= */
+.chatbox {
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  width: 340px;
+  height: 420px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 999;
+}
+
+/* =========================
+   HEADER
+========================= */
+.chatbox-header {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #000;
+  padding: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* =========================
+   MESSAGES AREA
+========================= */
+.chatbox-messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  background: #f9fafb;
+}
+
+/* BOT MESSAGE */
+.msg-bot {
+  background: #e5e7eb;
+  color: #000;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  max-width: 85%;
+  font-size: 14px;
+}
+
+/* USER MESSAGE */
+.msg-user {
+  background: #22c55e;
+  color: #000;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  margin-left: auto;
+  max-width: 85%;
+  font-size: 14px;
+}
+
+/* =========================
+   INPUT AREA
+========================= */
+.chatbox-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+
+.chatbox-input input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.chatbox-input button {
+  margin-left: 8px;
+  background: #22c55e;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}

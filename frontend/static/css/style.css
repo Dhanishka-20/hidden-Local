@@ -1,0 +1,712 @@
+/* ================= ROOT ================= */
+:root {
+  --accent: #22c55e;
+  --accent-hover: #16a34a;
+
+  --text-main: #f9fafb;
+  --text-muted: #d1d5db;
+
+  --glass-bg: rgba(2, 6, 23, 0.55);
+  --glass-border: rgba(255,255,255,0.08);
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  background: #020617;
+  color: var(--text-main);
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 40px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.logo-wrap img {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+}
+
+/* ICON LOGO (size same rahega) */
+.logo-wrap img {
+  height: 44px;     /* icon ka size – same & balanced */
+  width: auto;
+}
+
+/* TEXT LOGO */
+.logo-text {
+  font-size: 26px;          /* 🔥 bada text */
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* Optional subtle brand accent */
+.logo-text span {
+  color: var(--accent);
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+/* ================= HERO ================= */
+.hero-premium {
+  min-height: 100vh;
+  padding-top: 110px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: url("/static/ui/hero-bg.png") center / cover no-repeat;
+  position: relative;
+}
+
+.hero-premium::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2,6,23,0.25),
+    rgba(2,6,23,0.55)
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.hero-content h1 span {
+  color: var(--accent);
+}
+
+.hero-content p {
+  margin-top: 18px;
+  font-size: 20px;
+  color: #e5e7eb;
+}
+
+/* Buttons */
+.hero-actions {
+  margin-top: 32px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+
+.primary-btn {
+  padding: 14px 36px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: #022c22;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: var(--accent-hover);
+}
+
+.secondary-btn {
+  padding: 14px 36px;
+  border-radius: 999px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondary-btn:hover {
+  background: var(--accent);
+  color: #022c22;
+}
+
+/* ================= CATEGORY SLIDER ================= */
+.category-slider {
+  padding: 90px 0 70px;
+  background: url("/static/ui/hero-bg.png") center / cover no-repeat;
+  position: relative;
+}
+
+.category-slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(2,6,23,0.85);
+}
+
+.category-slider h2 {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 40px;
+}
+
+/* Horizontal scroll */
+.category-track {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  padding: 0 40px;
+  scroll-snap-type: x mandatory;
+}
+
+.category-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.category-slide {
+  min-width: 340px;
+  height: 440px;
+  border-radius: 26px;
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start;
+  box-shadow: 0 20px 55px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+
+.category-slide:hover {
+  transform: translateY(-8px);
+}
+
+.category-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    transparent 55%
+  );
+}
+
+.overlay {
+  position: absolute;
+  bottom: 26px;
+  left: 24px;
+  z-index: 2;
+}
+
+.overlay h3 {
+  font-size: 26px;
+}
+
+.overlay p {
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+/* ================= TRUST ================= */
+.trust-section {
+  padding: 90px 20px;
+}
+
+.trust-grid {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 26px;
+}
+
+.trust-item {
+  background: rgba(31,41,55,0.9);
+  border-radius: 18px;
+  padding: 34px;
+  text-align: center;
+}
+
+.trust-item h3 {
+  margin: 14px 0 6px;
+}
+
+.trust-item p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ================= EXPLORE PAGE ================= */
+.explore-page {
+  padding: 120px 60px 60px;
+  min-height: 100vh;
+}
+
+.gems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 26px;
+}
+
+/* Vendor Card */
+.vendor-card {
+  background: #0f172a;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+  transition: transform 0.25s ease;
+  position: relative;
+}
+
+.vendor-card:hover {
+  transform: translateY(-6px);
+}
+
+.vendor-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+/* Badge + Rating */
+.vendor-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--accent);
+  color: #022c22;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.vendor-rating {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.7);
+  color: #facc15;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.vendor-card h3 {
+  margin: 14px 16px 4px;
+  font-size: 18px;
+}
+
+.vendor-card p {
+  margin: 0 16px 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.direction-btn {
+  display: block;
+  margin: 14px 16px 18px;
+  padding: 10px;
+  text-align: center;
+  background: var(--accent);
+  color: #022c22;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.direction-btn:hover {
+  background: var(--accent-hover);
+}
+
+/* ================= FOOD DELIVERY BUTTONS ================= */
+
+/* ================= CARD ACTIONS (FIXED ALIGNMENT) ================= */
+
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* PERFECT 3-BUTTON ALIGN */
+  gap: 10px;
+  margin-top: 14px;
+}
+
+/* COMMON BUTTON STYLE */
+.card-actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 42px;                 /* SAME HEIGHT */
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* DIRECTIONS */
+.direction-btn {
+  background: #22c55e;
+  color: #022c22;
+}
+
+.direction-btn:hover {
+  background: #16a34a;
+}
+
+/* ZOMATO */
+.zomato-btn {
+  background: #e23744;
+  color: #ffffff;
+}
+
+.zomato-btn:hover {
+  background: #c41e2b;
+}
+
+/* SWIGGY */
+.swiggy-btn {
+  background: #fc8019;
+  color: #ffffff;
+}
+
+.swiggy-btn:hover {
+  background: #e26f0f;
+}
+
+/* ================= ADD VENDOR FORM ================= */
+.vendor-form {
+  max-width: 520px;
+  margin: auto;
+
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 20px;
+  padding: 34px;
+
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vendor-form input,
+.vendor-form select,
+.vendor-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #020617;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+}
+
+.vendor-form textarea {
+  resize: none;
+}
+
+.vendor-form input::placeholder,
+.vendor-form textarea::placeholder {
+  color: #9ca3af;
+}
+
+.vendor-form label {
+  font-size: 14px;
+  margin-top: 8px;
+  color: var(--text-muted);
+}
+
+.vendor-form small {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* ================= MAP ================= */
+#map {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 6px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+/* ================= IMAGE PREVIEW ================= */
+#imagePreview {
+  align-self: center;
+  max-width: 260px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+/* ================= BUTTONS ================= */
+.primary-btn {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: #022c22;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.primary-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .vendor-form {
+    padding: 26px;
+  }
+
+  .about h2 {
+    font-size: 28px;
+  }
+}
+
+/* ===============================
+   ADD VENDOR PAGE – HERO BACKGROUND
+================================ */
+
+.add-vendor-page {
+  min-height: 100vh;
+  padding: 140px 40px 60px;
+
+  background: url("/static/ui/hero-bg.png") center / cover no-repeat;
+  position: relative;
+}
+
+/* DARK OVERLAY */
+.add-vendor-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2,6,23,0.55),
+    rgba(2,6,23,0.75)
+  );
+  z-index: 1;
+}
+
+/* TITLE */
+.add-vendor-page h2 {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+/* FORM CONTAINER (GLASS CARD) */
+.vendor-form {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1100px;       /* 🔥 FULL-WIDTH FEEL */
+  margin: auto;
+
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(14px);
+
+  border-radius: 22px;
+  padding: 40px;
+
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* INPUTS */
+.vendor-form input,
+.vendor-form select,
+.vendor-form textarea {
+  background: #020617;
+  color: #f9fafb;
+  border: 1px solid #1f2937;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.vendor-form input:focus,
+.vendor-form select:focus,
+.vendor-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* MAP */
+#map {
+  height: 360px;
+  border-radius: 14px;
+  margin-top: 10px;
+}
+
+/* SUBMIT BUTTON */
+.vendor-form .primary-btn {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* ===============================
+   EXPLORE FILTER BAR
+================================ */
+
+.explore-filter-bar {
+  max-width: 1100px;
+  margin: 20px auto 40px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.explore-filter-bar input,
+.explore-filter-bar select {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #f9fafb;
+}
+
+.explore-filter-bar input::placeholder {
+  color: #9ca3af;
+}
+
+/* LOCATION BUTTON */
+.location-btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #022c22;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.location-btn:hover {
+  opacity: 0.92;
+}
+
+/* ================= LOGO ================= */
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icon logo (same size rahega) */
+.logo-wrap img {
+  height: 44px;
+  width: auto;
+}
+
+/* Hidden Local text */
+.logo-text {
+  font-size: 28px;       /* bada text */
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* Local ko highlight */
+.logo-text span {
+  color: var(--accent);
+}
+
+/* ================= ADMIN BUTTONS ================= */
+
+.approve-btn {
+  background: #22c55e;
+  color: #022c22;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.approve-btn:hover {
+  background: #16a34a;
+}
+
+.reject-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reject-btn:hover {
+  background: #dc2626;
+}
+
+.vendor-thumbnail {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+}

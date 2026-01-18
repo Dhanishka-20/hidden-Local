@@ -1,0 +1,11 @@
+<aiml>
+
+  <category>
+    <pattern>*</pattern>
+    <template>
+      I’m not sure about that 🤔  
+      You can ask me about vendors, features, or how Hidden Local works.
+    </template>
+  </category>
+
+</aiml>

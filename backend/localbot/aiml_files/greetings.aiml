@@ -1,0 +1,24 @@
+<aiml>
+
+  <category>
+    <pattern>HELLO *</pattern>
+    <template>
+      Hello 👋 I’m <bot name="name"/>. How can I help you with Hidden Local today?
+    </template>
+  </category>
+
+  <category>
+    <pattern>HI</pattern>
+    <template>
+      Hi there! 😊 Ask me about local vendors or how Hidden Local works.
+    </template>
+  </category>
+
+  <category>
+    <pattern>HEY</pattern>
+    <template>
+      Hey! Ready to discover some hidden gems? ✨
+    </template>
+  </category>
+
+</aiml>

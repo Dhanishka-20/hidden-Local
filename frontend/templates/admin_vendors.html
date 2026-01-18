@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin | Vendor Approvals</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <h2 class="logo">Hidden Local <span style="color:#22c55e;">Admin</span></h2>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/explore">Explore</a></li>
+    </ul>
+</nav>
+
+<!-- ================= ADMIN CONTAINER ================= -->
+<main class="explore-page">
+
+    <h2 class="explore-title">Pending Vendor Requests</h2>
+
+    {% if vendors %}
+    <div class="gems-grid">
+
+        {% for v in vendors %}
+        <div class="vendor-card">
+
+            <span class="vendor-badge">{{ v.category }}</span>
+            <span class="vendor-rating">⭐ {{ v.rating }}</span>
+
+            <h3>{{ v.name }}</h3>
+            <p><b>Area:</b> {{ v.area }}</p>
+            <p>{{ v.description }}</p>
+
+            <div class="card-actions">
+                <button
+                   type="button"
+                   class="approve-btn"
+                   onclick="approveVendor({{ v.id }})">
+                   Approve
+                </button>
+
+                <button
+                  type="button"
+                  class="reject-btn"
+                  onclick="rejectVendor({{ v.id }})">
+                  Reject
+                  </button>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+    {% else %}
+        <p style="text-align:center;margin-top:40px;">
+            🎉 No pending vendor requests
+        </p>
+    {% endif %}
+
+</main>
+
+<script>
+function approveVendor(id) {
+    fetch("/admin/vendor/" + id + "/approve", {
+        method: "POST"
+    })
+    .then(function () {
+        location.reload();
+    })
+    .catch(function (err) {
+        console.error(err);
+        alert("Approve failed");
+    });
+}
+
+function rejectVendor(id) {
+    fetch("/admin/vendor/" + id + "/reject", {
+        method: "POST"
+    })
+    .then(function () {
+        location.reload();
+    })
+    .catch(function (err) {
+        console.error(err);
+        alert("Reject failed");
+    });
+}
+</script>
+   
+
+</body>
+</html>
