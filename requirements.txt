@@ -1,0 +1,12 @@
+flask
+flask-cors
+mysql-connector-python
+pymysql
+requests
+python-dotenv
+scikit-learn
+pandas
+numpy
+joblib
+python-aiml
+

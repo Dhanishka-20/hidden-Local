@@ -1,0 +1,40 @@
+{
+  "greeting": [
+    "hi",
+    "hello",
+    "hey",
+    "hii",
+    "good morning",
+    "good evening"
+  ],
+
+  "about_platform": [
+    "what is hidden local",
+    "tell me about hidden local",
+    "what does hidden local do",
+    "about hidden local",
+    "what is this platform"
+  ],
+
+  "add_vendor": [
+    "how to add vendor",
+    "how to add vendors",
+    "how can i add my shop",
+    "where to submit vendor",
+    "i want to add my store",
+    "add a local business"
+  ],
+
+  "search_vendor": [
+    "food vendors",
+    "food places near me",
+    "best food places",
+    "show vendors",
+    "vendors in jaipur",
+    "shops near banipark",
+    "find food vendors",
+    "good food",
+    "street food",
+    "local food"
+  ]
+}

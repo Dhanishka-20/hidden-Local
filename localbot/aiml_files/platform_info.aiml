@@ -1,0 +1,24 @@
+<aiml>
+
+  <category>
+    <pattern>WHAT IS HIDDEN LOCAL</pattern>
+    <template>
+      <srai>ABOUT HIDDEN LOCAL</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ABOUT HIDDEN LOCAL</pattern>
+    <template>
+      Hidden Local is a community-driven platform to discover underrated local vendors near you.
+    </template>
+  </category>
+
+  <category>
+    <pattern>WHY HIDDEN LOCAL</pattern>
+    <template>
+      We help small local businesses get visibility beyond big platforms.
+    </template>
+  </category>
+
+</aiml>
