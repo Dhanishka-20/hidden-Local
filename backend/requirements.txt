@@ -1,6 +1,0 @@
-Flask-cors
-Flask
-mysql-connector-python
-pandas
-nltk
-textblob
